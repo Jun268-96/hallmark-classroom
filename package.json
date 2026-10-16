@@ -1,0 +1,10 @@
+{
+  "name": "hallmark-classroom-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/harness.test.mjs",
+    "verify:reference": "node scripts/verify_lesson.mjs assets/ratio-lesson.html --contract assets/ratio-lesson.contract.json"
+  },
+  "devDependencies": { "playwright": "1.63.0" }
+}

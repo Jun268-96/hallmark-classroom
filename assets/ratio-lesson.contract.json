@@ -1,0 +1,551 @@
+{
+  "version": 1,
+  "title": "비례식·비례배분 기준 자료",
+  "scenes": [
+    {
+      "name": "같은 비",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"0\"]"
+        }
+      ]
+    },
+    {
+      "name": "비례식",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"1\"]"
+        }
+      ]
+    },
+    {
+      "name": "비례배분",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        }
+      ]
+    },
+    {
+      "name": "확인 문제",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"3\"]"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "비례식의 같은 비",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"1\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-0",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-1",
+          "value": "3"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-2",
+          "value": "4"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-3",
+          "value": "6"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#product-equal",
+          "text": "="
+        },
+        {
+          "selector": "#outer-product",
+          "includes": [
+            "12"
+          ]
+        },
+        {
+          "selector": "#inner-product",
+          "includes": [
+            "12"
+          ]
+        },
+        {
+          "selector": "#proportion-equal",
+          "text": "="
+        }
+      ]
+    },
+    {
+      "name": "다른 비에 등호를 남기지 않음",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"1\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-0",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-1",
+          "value": "3"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-2",
+          "value": "4"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-3",
+          "value": "7"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#product-equal",
+          "text": "≠"
+        },
+        {
+          "selector": "#outer-product",
+          "includes": [
+            "14"
+          ]
+        },
+        {
+          "selector": "#inner-product",
+          "includes": [
+            "12"
+          ]
+        },
+        {
+          "selector": "#proportion-equal",
+          "text": "≠"
+        }
+      ]
+    },
+    {
+      "name": "비례식 소수",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"1\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-0",
+          "value": "0.5"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-1",
+          "value": "1"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-2",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#term-3",
+          "value": "4"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#product-equal",
+          "text": "="
+        },
+        {
+          "selector": "#outer-product",
+          "includes": [
+            "2"
+          ]
+        },
+        {
+          "selector": "#proportion-equal",
+          "text": "="
+        }
+      ]
+    },
+    {
+      "name": "비례배분 정답과 실제 그림의 비",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "40"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "3"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".ribbon-part:first-child",
+          "text": "가 모둠 16 cm"
+        },
+        {
+          "selector": ".ribbon-part:first-child",
+          "widthRatio": {
+            "other": ".ribbon-part:last-child",
+            "expected": 0.6666666666666666
+          }
+        },
+        {
+          "selector": ".validation",
+          "includes": [
+            "40 cm"
+          ]
+        },
+        {
+          "selector": ".ribbon-part:last-child",
+          "text": "나 모둠 24 cm"
+        }
+      ]
+    },
+    {
+      "name": "전체 변경 뒤 그림·검산 갱신",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "80"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "3"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".ribbon-part:first-child",
+          "text": "가 모둠 32 cm"
+        },
+        {
+          "selector": ".total-caption",
+          "text": "전체 80 cm"
+        },
+        {
+          "selector": ".validation",
+          "includes": [
+            "80 cm"
+          ]
+        },
+        {
+          "selector": ".ribbon-part:last-child",
+          "text": "나 모둠 48 cm"
+        }
+      ]
+    },
+    {
+      "name": "소수 전체량 지원",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "7.5"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "1"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "2"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".ribbon-part:first-child",
+          "text": "가 모둠 2.5 cm"
+        },
+        {
+          "selector": ".ribbon-part:last-child",
+          "text": "나 모둠 5 cm"
+        }
+      ]
+    },
+    {
+      "name": "분수의 비 지원",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "12"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "1/2"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "1/3"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".ribbon-part:first-child",
+          "text": "가 모둠 7.2 cm"
+        },
+        {
+          "selector": ".ribbon-part:last-child",
+          "text": "나 모둠 4.8 cm"
+        }
+      ]
+    },
+    {
+      "name": "0 입력 오류와 정상 복구",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "40"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "0"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "3"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#allocation-error",
+          "includes": [
+            "0보다"
+          ]
+        },
+        {
+          "selector": ".invalid-board",
+          "includes": [
+            "확인"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "오류 이후 정상 결과 복구",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"2\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "40"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "0"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-b",
+          "value": "3"
+        },
+        {
+          "action": "fill",
+          "selector": "#part-a",
+          "value": "2"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".ribbon-part:first-child",
+          "text": "가 모둠 16 cm"
+        },
+        {
+          "selector": ".ribbon-part:last-child",
+          "text": "나 모둠 24 cm"
+        }
+      ]
+    },
+    {
+      "name": "분수 동치 정답 채점",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"3\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#answer-q5",
+          "value": "5/2"
+        },
+        {
+          "action": "click",
+          "selector": "#quiz-form button[type=\"submit\"]"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#feedback-q5",
+          "includes": [
+            "맞았어요."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "답 수정 시 이전 채점 해제",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"3\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#answer-q5",
+          "value": "5/2"
+        },
+        {
+          "action": "click",
+          "selector": "#quiz-form button[type=\"submit\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#answer-q5",
+          "value": "3"
+        },
+        {
+          "action": "click",
+          "selector": "#quiz-form button[type=\"submit\"]"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#feedback-q5",
+          "includes": [
+            "다시 생각해 보세요."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "다시 풀기의 입력·결과 초기화",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-step=\"3\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#answer-q5",
+          "value": "5/2"
+        },
+        {
+          "action": "click",
+          "selector": "#quiz-form button[type=\"submit\"]"
+        },
+        {
+          "action": "click",
+          "selector": "#quiz-retry"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#answer-q5",
+          "value": ""
+        },
+        {
+          "selector": "#quiz-count",
+          "text": "0 / 6 응답"
+        },
+        {
+          "selector": "#quiz-form",
+          "excludes": [
+            "맞았어요.",
+            "다시 생각해 보세요."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "기준 디자인의 배경·컵선·조작부 보존",
+      "steps": [],
+      "expect": [
+        {
+          "selector": "body",
+          "style": {
+            "background-color": "rgb(246, 244, 236)"
+          }
+        },
+        {
+          "selector": ".glass:not(.large)",
+          "style": {
+            "border-left-style": "solid"
+          }
+        },
+        {
+          "selector": ".aside",
+          "style": {
+            "background-color": "rgb(217, 235, 223)"
+          }
+        }
+      ]
+    }
+  ]
+}

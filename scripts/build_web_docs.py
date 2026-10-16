@@ -11,6 +11,7 @@ def render_documents(root: Path) -> dict[str, str]:
     references = (
         ("creation workflow", "creation-workflow.md", "새 제작 사례", "creation-workflow"),
         ("lesson patterns", "lesson-patterns.md", "전후 편집 사례", "lesson-patterns"),
+        ("skill harness", "harness.md", "스킬 하네스", "skill-harness"),
     )
     sections = []
     for label, filename, title, anchor in references:
@@ -23,7 +24,7 @@ def render_documents(root: Path) -> dict[str, str]:
 
 **주제와 한 줄 요청으로 조작형 수업 자료를 만듭니다. 기존 HTML을 첨부하면 디자인과 수업 기능을 살리며 정리합니다.**
 
-이 README에 실행 지침·새 제작 사례·전후 편집 예시가 모두 들어 있습니다. AI는 이 문서를 읽고 수업 구성부터 구현·확인·수정까지 진행합니다. 다른 스킬을 설치하지 않아도 됩니다. 사용자의 구체적인 요구를 우선합니다.
+이 README에 실행 지침·새 제작 사례·전후 편집 예시가 모두 들어 있습니다. 실행 도구가 있으면 내장 하네스로 기준 HTML을 활용하고 실제 검사 결과를 받아 수정합니다. 별도 서비스나 모델 API 키는 필요하지 않습니다. 사용자의 구체적인 요구를 우선합니다.
 
 새 수업 자료 만들기:
 
@@ -41,10 +42,32 @@ https://github.com/Jun268-96/hallmark-classroom 이걸로 다시 수정
 
 [통합 지침 원문](https://raw.githubusercontent.com/Jun268-96/hallmark-classroom/main/WEB_GUIDE.md) · [설치용 SKILL.md](SKILL.md)
 
+[웹용 하네스 전체 묶음](https://raw.githubusercontent.com/Jun268-96/hallmark-classroom/main/HARNESS_BUNDLE.md): 기준 HTML·검사 코드·동작 계약·패키지 파일을 한 번에 읽습니다. 터미널·브라우저가 지원되면 실제 실행하고, 도구가 없으면 미검증 범위를 밝힙니다.
+
 ---
 
 """
+    bundle_files = (
+        ("assets/ratio-lesson.html", "html"),
+        ("assets/ratio-lesson.contract.json", "json"),
+        ("scripts/verify_lesson.mjs", "javascript"),
+        ("scripts/harness.test.mjs", "javascript"),
+        ("package.json", "json"),
+        ("package-lock.json", "json"),
+        ("third_party/superpowers/verification-before-completion.md", "markdown"),
+        ("third_party/superpowers/LICENSE", "text"),
+    )
+    bundle = (
+        "# Hallmark Classroom · Harness Bundle\n\n"
+        "기존 스킬에 포함된 하네스입니다. 별도 서비스나 API 키를 만들지 않습니다. "
+        "아래 지침을 읽고 필요한 파일 블록을 임시 작업 폴더의 해당 상대 경로에 저장하세요. "
+        "기존 사용자 파일은 덮어쓰지 않습니다. 브라우저·Node 실행이 안 되면 실행했다고 주장하지 않습니다.\n\n"
+        + (root / "references/harness.md").read_text(encoding="utf-8")
+    )
+    for filename, language in bundle_files:
+        bundle += f"\n\n## File: {filename}\n\n~~~~{language}\n" + (root / filename).read_text(encoding="utf-8") + "\n~~~~\n"
     return {
+        "HARNESS_BUNDLE.md": bundle,
         "README.md": entry + instructions,
         "WEB_GUIDE.md": (
             "# Hallmark Classroom · Complete Web Instructions\n\n"

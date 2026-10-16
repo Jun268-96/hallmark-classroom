@@ -1,6 +1,6 @@
 ---
 name: hallmark-classroom
-description: "Create interactive classroom HTML materials from a short lesson request, or simplify an existing lesson app while preserving its visual identity and behaviour. Use for teacher lesson tools and demos, including a repository URL plus a one-line request. Includes lesson sequencing, visual design, implementation, and verification without requiring other installed skills."
+description: "Create interactive classroom HTML materials from a short request, or simplify an existing lesson app while preserving its visual identity and behaviour. Includes a reference HTML, executable skill-local verification harness, and evidence-based repair loop. Use for teacher lesson tools and demos, including a repository URL plus a one-line request. No separate model API service required."
 ---
 
 # Hallmark Classroom
@@ -51,6 +51,7 @@ description: "Create interactive classroom HTML materials from a short lesson re
 
 ## 4. 작동하는 자료로 구현한다
 
+- 새 비례식·비례배분 자료는 [기준 HTML](assets/ratio-lesson.html)을 작업 폴더에 복사해 활용한다. 이미 구현된 조작·분수 계산·채점을 다시 만드는 부담을 줄이고 수업 맥락·예제·문구·시각 표현을 조정한다. 기존 자료 수정에는 원래 디자인과 동작을 우선하며 이 틀로 갈아엎지 않는다. 다른 과목에는 해당 수업에 맞는 구조를 만든다.
 - 새 자료는 별도 요구가 없으면 **CSS·JavaScript·필요한 그림을 포함한 단일 HTML**로 만든다. 브라우저에서 열어 쓸 수 있어야 한다. 기존 프로젝트는 그 프로젝트의 구조와 실행 방식에 맞춰 필요한 파일을 수정한다.
 - 그림은 가능하면 HTML·CSS·SVG로 직접 만들고 입력 상태에서 계산한 값으로 갱신한다. 숫자 라벨만 바꾸고 길이·면적·수량을 고정하지 않는다. 주스 컵의 같은 용량·눈금, 리본의 전체와 부분처럼 그림의 기준도 일치시킨다.
 - 입력값과 계산 결과를 한 상태에서 읽어 질문·단위·그림·피드백을 함께 갱신한다. 잘못된 입력을 이전의 정상 결과처럼 남기지 말고 이유와 고칠 대상을 알린다. `NaN`, 무한대, 원시 수식 명령을 노출하지 않는다.
@@ -60,6 +61,14 @@ description: "Create interactive classroom HTML materials from a short lesson re
 - frontend-design·Sites 같은 도구나 스킬이 실제로 있고 도움이 되면 활용할 수 있다. 없어도 위 절차를 직접 수행한다. 스킬 문서가 웹의 파일·검색·실행 도구를 추가해 주지는 않는다.
 
 ## 5. 확인하고 발견한 문제를 고친다
+
+**실행 도구가 있으면 [skill harness](references/harness.md)의 검사기를 사용한다.** `scripts/verify_lesson.mjs`는 결과와 실패 이유를 JSON으로 남기며 현재 AI가 이를 읽어 수정한다. 별도 서비스·모델 API는 필요하지 않다. Superpowers의 공개 검증 게이트 원문과 MIT 라이선스도 패키지에 포함한다. 한 문서로 가져와야 하는 웹 환경은 `HARNESS_BUNDLE.md`를 읽어 기준 HTML·코드·계약 파일을 저장해 사용한다.
+
+```sh
+node scripts/verify_lesson.mjs /path/to/lesson.html --contract assets/ratio-lesson.contract.json --out /path/to/check-1
+```
+
+UI 선택자가 다르면 같은 동작을 확인하도록 계약을 조정한다. 검사 실패를 숨기기 위해 기대값·항목을 없애지 않는다. 첫 실행 뒤 최대 2회 수정·재검사하고 계속 실패하면 남은 오류를 알린다. 종료 코드 0은 명시한 검사의 통과, 1은 실패, 2는 도구 부족·일부 검사만 수행을 뜻한다. 스크린샷은 직접 열어 시각 품질도 확인하며 최종 파일 해시와 검사 보고서가 일치해야 한다.
 
 가능한 도구로 아래를 확인한다. 검사를 선언하는 것으로 대신하지 않는다. 실행 도구가 없으면 코드·계산 검토를 진행하고 실제 화면 검증을 하지 못했다고 알린다.
 

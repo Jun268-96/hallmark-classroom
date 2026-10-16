@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "title": "기존 색 막대 자료 회귀 검사",
+  "scenes": [
+    {
+      "name": "비례배분",
+      "steps": []
+    },
+    {
+      "name": "비례식",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-tab=\"equation\"]"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "소수 전체량을 계산할 수 있음",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "7.5"
+        },
+        {
+          "action": "fill",
+          "selector": "#ra",
+          "value": "1"
+        },
+        {
+          "action": "fill",
+          "selector": "#rb",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#guessA",
+          "value": "2.5"
+        },
+        {
+          "action": "fill",
+          "selector": "#guessB",
+          "value": "5"
+        },
+        {
+          "action": "click",
+          "selector": "#checkShare"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#shareFeedback",
+          "includes": [
+            "정답이에요!"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "표시한 반올림 답을 다시 입력해도 인정",
+      "steps": [
+        {
+          "action": "fill",
+          "selector": "#total",
+          "value": "1"
+        },
+        {
+          "action": "fill",
+          "selector": "#ra",
+          "value": "1"
+        },
+        {
+          "action": "fill",
+          "selector": "#rb",
+          "value": "2"
+        },
+        {
+          "action": "fill",
+          "selector": "#guessA",
+          "value": "0.3333"
+        },
+        {
+          "action": "fill",
+          "selector": "#guessB",
+          "value": "0.6667"
+        },
+        {
+          "action": "click",
+          "selector": "#checkShare"
+        }
+      ],
+      "expect": [
+        {
+          "selector": "#shareFeedback",
+          "includes": [
+            "정답이에요!"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "다른 비의 중앙 기호가 등호가 아님",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-tab=\"equation\"]"
+        },
+        {
+          "action": "fill",
+          "selector": "#e4",
+          "value": "7"
+        },
+        {
+          "action": "click",
+          "selector": "#checkEq"
+        }
+      ],
+      "expect": [
+        {
+          "selector": ".equation",
+          "excludes": [
+            " = "
+          ]
+        }
+      ]
+    }
+  ]
+}
