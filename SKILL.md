@@ -1,19 +1,30 @@
 ---
 name: hallmark-classroom
-description: "Create or redesign interactive classroom web materials by reducing on-screen explanation, simplifying layout, and making learner actions and their visual consequences prominent. Use for lesson tools, student activities, and teaching demos, especially when a page is text-heavy or a redesign needs a clear before-and-after. Not a general landing-page theme or a substitute for lesson planning."
+description: "Substantially simplify text-heavy classroom web materials: remove redundant copy, consolidate explanatory panels, rebuild the screen around a large learning object, and preserve working lesson features. Use for lesson tools, student activities, and teaching demos needing a clear structural before-and-after. Cosmetic colour, wording, or card-style changes alone do not complete a redesign. Respect narrower requests and reading-focused lessons."
 ---
 
 # Hallmark Classroom
 
 A classroom-focused fork of the local Hallmark skill. Keep its intentional hierarchy, readable typography, restrained visual language, and purposeful feedback. Replace its theme-first page workflow with **learning action → information reduction → spatial composition → visible consequence → styling**.
 
-The finished material should let a student see what to do and see what changed. A palette swap, thicker borders, or more animated cards does not satisfy a request for a substantial redesign.
+## 적용 계약 · 구조 변경이 먼저
+
+“간소화”, “재구성”, “확 바꿔줘”라는 요청에는 아래 기준을 적용한다. 사용자가 색상만 바꾸라고 한 경우나 읽기 자체가 학습인 자료에는 범위를 넓혀 적용하지 않는다.
+
+1. **원래 배치를 보존해야 한다고 해석하지 않는다.** 기능·수업 내용·데이터·정답 로직을 보존하되, 설명 카드와 컨테이너는 통합·이동·재배치한다. CSS와 문구만 손보고 끝내지 않는다.
+2. **첫 화면에서 바로 활동한다.** 조작·탐구 자료는 짧은 질문, 큰 학습 대상, 가까운 조작부로 시작한다. 개념 요약은 필요할 때 접근할 수 있게 옮긴다. 긴 개념 소개를 먼저 통과해야 활동하는 구조를 그대로 두지 않는다.
+3. **텍스트와 독립 설명 영역을 실제로 줄인다.** 정보가 많은 조작 자료에서는 기본 화면의 비필수 설명 분량과 독립 설명 패널 수를 각각 절반 이하로 줄이는 것을 기본 목표로 삼는다. 의미·조건·접근성을 지키기 어려우면 수치 달성 대신 구체적인 이유와 대안을 제시한다. 글자 축소, 화면 밖 밀어내기, 의미를 잃은 아이콘 치환으로 수치를 맞추지 않는다.
+4. **학습 대상이 화면의 중심을 차지한다.** 그래프·도형·분할 막대·모형·문제와 답안 등 현재 과제의 핵심을 크게 배치한다. 넓은 빈 카드 안에 작은 시각화만 넣지 않는다. 비필수 설명이 핵심 대상보다 더 많은 시선을 차지하면 다시 구성한다.
+5. **같은 카드 구조는 완료가 아니다.** 장식만 빼거나 이름만 바꾼 카드가 같은 위치에 남으면 다시 작업한다. 통합·이동된 정보와 확대된 학습 대상을 실제 변경의 증거로 확인한다. 내용이 정말 필요한 읽기·비교 과제에는 적합한 구조를 보존한다.
+6. **구조가 바뀐 뒤 스타일을 다듬는다.** 색, 폰트, 그림자, 라운딩, 아이콘, 샘플 숫자 변경은 구조 개선 실적으로 세지 않는다. `Hallmark`, `Classroom Edition`, `PRINCIPLE 01` 같은 스킬명·장식 영어를 학습 화면에 새로 넣지 않는다.
+
+The finished material should let a student see what to do and see what changed. These are acceptance criteria for an authorized substantial redesign, not permission to remove required activities or rewrite unrelated application logic.
 
 ## Scope and starting point
 
 - Read the existing material and relevant lesson requirements before changing it. Identify the learner, the task, the device, and the mathematical or subject relationship the interface must convey. Infer settled details from the conversation; ask only when a missing answer changes the work.
 - Describe the central learner action in one sentence, such as: “Change the ratio and predict each share.” This is an internal design decision, not another introductory card on the page.
-- Preserve working routes, data, grading, saved state, and required lesson content. Simplify the current UI in place when possible. Do not replace a working application with a disconnected mockup or silently remove a requested activity.
+- Preserve working routes, data, grading, saved state, and required lesson content. **Preserve capabilities, not the old arrangement.** Changing layout files, component grouping, and the default activity view inside the target is part of a substantial redesign. Do not replace a working application with a disconnected mockup or silently remove a requested activity.
 - For audit-only or planning-only requests, return the diagnosis or plan and stop before editing. A redesign request authorizes relevant copy/layout changes, not deployment, production data changes, or unrelated rewrites.
 - Apply this workflow within the requested screen or component. Do not force an entire app into one activity screen. Dashboards still need their real information and working navigation.
 
@@ -29,9 +40,9 @@ Classify each existing item by its job:
 | Repeated title, instructions obvious from the control, decorative slogan | Remove or merge |
 | Attribution or other required notice | Preserve in a readable, appropriate place |
 
-Default to a short question or action sentence instead of an explanatory introduction. Keep essential conditions and vocabulary: shortening must not change the task. Do not replace five text cards with five accordions. Choose the few secondary views the lesson actually needs.
+Default to a short question or action sentence instead of an explanatory introduction. Keep essential conditions and vocabulary: shortening must not change the task. Remove duplicated explanatory prose rather than just paraphrasing each sentence. Do not replace five text cards with five accordions or one modal containing the same undifferentiated wall of cards. Group secondary explanation around a specific learner question, with a clearly named way to reach it.
 
-For substantial redesigns, change the visible content hierarchy and spatial structure **before** polishing fonts, borders, or colour. If the proposed before/after still has the same wall of cards, revisit the composition. A narrow colour-only request remains narrow.
+Before styling, make a compact internal content map: **keep here / merge / move to a secondary view / remove as duplicate**. Name the concrete destinations for required content and how existing activities remain reachable. Implement the map; a proposed map alone is not completion of a build request. If structural changes cannot be made within the user's explicit scope, state that limit instead of presenting cosmetic changes as the requested redesign.
 
 ## 2. Give the activity the space
 
@@ -39,6 +50,7 @@ For substantial redesigns, change the visible content hierarchy and spatial stru
 - Put controls next to the thing they change and results next to the evidence that explains them. Avoid repeated journeys between a distant input, formula panel, and result card.
 - Keep one current learning task in focus. Sequential stages are useful when students need to predict, act, and check; do not introduce extra navigation for a task that already fits clearly.
 - Prefer one shared surface with spacing and type hierarchy over nested containers. Use a border when it communicates a real group, state, or comparison.
+- Separate the learning object from its surrounding wrapper when judging scale. Enlarge the actual diagram/model/question, not only its panel. As a starting target for a projected manipulation activity, allocate at least half the usable activity area to the central object; adjust when a paired comparison or response field is essential. This is a composition target, not an excuse to enlarge irrelevant empty space.
 - On a projected activity, the question, important values, controls, and result should be visible together at the intended presentation size. Move detail or split into meaningful stages before shrinking everything to fit.
 - Derive typography from viewing distance and content. Korean glyph readability matters more than novelty. A readable system or existing font is acceptable; serif headings, dark themes, and multiple font families are not requirements.
 
@@ -70,7 +82,9 @@ Prefer the project's current implementation tools. Native HTML/CSS, Canvas, or S
 
 ## 5. Verify the change against the lesson
 
-- Capture the relevant original screen before editing. Compare the same viewport, task, input values, and reveal state afterwards. Do not manufacture a worse “before,” or compare a broken first screen against a different completed activity.
+- Capture the relevant original screen before editing. Compare the same viewport, task, input values, and reveal state afterwards. Also inspect each version's actual initial screen if the redesign changes the entry point. Do not manufacture a worse “before,” or compare a broken first screen against a different completed activity.
+- For dense manipulation screens, record the original and revised **visible nonessential explanatory text** and **independent explanatory panels**, using the same task/state and viewport. Count rendered copy, not source code bytes, class names, or comments. Panel counts describe separate explanation groups, not arbitrary DOM `div` counts. Keep the essential task conditions out of the deletion target; name that boundary. Check the reduction goals in the application contract, and do not claim a percentage you did not measure.
+- Confirm where required explanation and each existing activity can still be reached. Merely hiding everything, deleting functionality, or leaving the main model unchanged in a larger empty container fails the redesign.
 - Verify the main path in a browser: enter the activity, change the relevant input, observe all linked representations, check/reset, and revisit if the task has stages. Confirm keyboard/touch equivalents for the controls used.
 - For projected work, use the real presentation size when known; otherwise use a representative desktop viewport such as 1280×720. Check a narrow viewport when student phones/tablets are in scope. Reset temporary viewport overrides when finished.
 - Validate the subject relationship, not only the screenshot. Check totals, proportional lengths, units, accepted answers, and meaningful edge cases. Reuse the existing grader; do not rewrite lesson logic just for styling. Report a discovered content error and repair it only within the user's scope.
@@ -83,15 +97,16 @@ Before handoff, answer these questions internally:
 2. Does the learning object dominate rather than decorative containers?
 3. Is the visual consequence of the action obvious and correct?
 4. Has required information remained available without crowding the current activity?
-5. Does the before/after show a useful change beyond the colour palette?
+5. Which explanatory regions were merged, moved, or removed, and which learning object actually grew?
+6. If the new screen keeps the old card arrangement, is there an explicit task-based reason? “Preserve the existing design” is not a reason when the user asked to simplify that arrangement.
 
-Fix an unsatisfied question that matters to the brief before adding visual polish. No fabricated scores or automatic “all passed” stamps.
+Fix an unsatisfied question that matters to the brief before adding visual polish. If text density and arrangement remain essentially the same, do another structural pass before handoff. No fabricated scores or automatic “all passed” stamps. When browser verification is unavailable, distinguish code changes from observed visual improvement.
 
 ## Handoff
 
-Lead with the working result and the most meaningful change. Give a short verification summary and material remaining limits. Keep implementation terminology, source-skill branding, audit checklists, and claims about the designer out of the student-facing UI.
+Lead with the working result and the most meaningful change. Give a short verification summary and material remaining limits. For a substantial simplification, identify the actual removed/merged/moved groups and any measured reduction in one short sentence. Do not list cosmetic edits as evidence of structural improvement. Keep implementation terminology, source-skill branding, audit checklists, and claims about the designer out of the student-facing UI.
 
-Creating this skill does not itself redesign any supplied app. On its first real use, judge the rendered result; revise a rule only when the observed outcome supports the revision.
+Creating this skill does not itself redesign any supplied app. On each actual use, judge the rendered result; revise a rule only when the observed outcome supports the revision.
 
 ## Fork provenance
 

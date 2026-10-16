@@ -43,8 +43,15 @@ Read only the pattern relevant to the lesson. These are examples of spatial and 
 - Keep necessary conditions, evidence, and source wording intact when the user requires it. Hide only secondary detail, with a clear route back to it.
 - Do not invent an interaction or elaborate animation to satisfy a visual style.
 
-## Applying the patterns to the two ratio drafts
+## Regression case: a cosmetic pass on the dark ratio draft
 
-The observed cream draft has explanatory introductions and many bordered groups; raw math syntax is visible in formulas. The dark draft has more orderly cards but small, muted supporting text and a concept-heavy first screen. Neither a colour swap nor swapping one card style for another resolves both problems.
+An observed revision kept three concept cards and two glossary panels in their original arrangement, retained small explanatory text, renamed the card CSS class, added “Hallmark Concept Cards / Principle 01” labels, and changed the visualizer's initial numbers. This is a **failed structural simplification**, even when the HTML differs and hover effects were added.
 
-For a requested substantial classroom redesign, consider starting directly at the relevant learner task, enlarging its visual evidence and controls, and moving the concept recap to a purposeful secondary view. Preserve the existing practice flow and mathematical content. This observation motivates the workflow; it does not prove a future redesign works before browser verification.
+For a substantial redesign of that manipulation lesson:
+
+- Start at a relevant short question with the working quantity model and adjacent controls. Do not retain the concept-card wall as the default entry screen simply because the source opens there.
+- Consolidate the three concept explanations and two vocabulary panels into a purposeful secondary reference. Remove duplicate introductions. Keep required terms available; practice and grading remain reachable and functional.
+- Increase the size of the actual model and its important values; verify that students can see the change from the intended viewing distance.
+- Compare the same ratio task and values as well as the old/new default screens. Check text/panel reduction and required-content access before calling the redesign complete.
+
+The exact arrangement depends on the supplied lesson. These steps describe what constitutes a meaningful change for this regression case, not a universal instruction to delete concept teaching or reading activities.
