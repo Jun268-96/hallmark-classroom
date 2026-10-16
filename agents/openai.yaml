@@ -1,4 +1,4 @@
 interface:
   display_name: "Hallmark Classroom"
-  short_description: "기존 시각 디자인과 수업 기능을 살리면서 중복 텍스트를 최소화하는 수업 UI"
-  default_prompt: "$hallmark-classroom으로 첨부한 자료를 수정해줘."
+  short_description: "한 줄 요청에서 조작형 수업 자료를 만들고 기존 디자인과 기능을 살려 간소화합니다"
+  default_prompt: "$hallmark-classroom으로 요청한 수업 자료를 만들어줘. 기존 자료를 첨부했다면 그 자료를 정리해줘."
