@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hallmark Classroom"
+  short_description: "설명과 배치를 줄이고 학생의 조작과 결과를 크게 보여주는 수업 UI"
+  default_prompt: "$hallmark-classroom으로 이 수업 자료의 설명과 배치를 간소화하고, 학생의 조작에 따른 변화를 크게 보여줘."
