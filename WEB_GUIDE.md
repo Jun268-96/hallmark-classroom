@@ -4,182 +4,114 @@
 
 # Hallmark Classroom
 
-A classroom-focused fork of the local Hallmark skill. Keep its intentional hierarchy, readable typography, restrained visual language, and purposeful feedback. Replace its theme-first page workflow with **learning action → information reduction → spatial composition → visible consequence → styling**.
+**기본 작업: 시각 디자인과 기존 수업·기능은 살리고, 화면의 텍스트 요소를 최소화한다.**
 
-## 짧은 요청으로 실행하기
+원본 Hallmark의 색 조합, 타이포그래피, 대비, 여백, 컴포넌트의 일관성을 유지하는 수업용 보조 스킬이다. 간소화를 이유로 개성 있는 자료를 무채색 입력 폼으로 다시 만들지 않는다. 텍스트를 줄였다는 사실보다 **원래 자료의 매력을 유지하면서 더 빨리 읽고 사용할 수 있게 됐는지**를 판단한다.
 
-이 지침은 AI 사용에 익숙하지 않은 교사가 **저장소 링크 + “이걸로 수정해줘”** 정도만 입력해도 작동하도록 작성되었다. 사용자가 이런 요청과 수정할 자료를 제공하면 다음을 수행한다.
+## 한 줄 요청으로 시작하기
 
-- **기본 작업은 구조 간소화다.** 사용자가 “텍스트를 줄여”, “카드를 합쳐”를 추가로 적을 필요가 없다. 아래 적용 계약을 기본값으로 사용한다. 구체적으로 범위를 제한한 사용자 요청은 그 제한을 따른다.
-- **수정 대상은 사용자의 자료다.** 현재 대화에서 제공한 최신 HTML·앱·프로젝트를 읽는다. 이 스킬 저장소 자체나 예시를 고치는 작업으로 오해하지 않는다. 대상이 없거나 실제로 모호할 때만 필요한 질문 하나를 한다.
-- **자료가 충분하면 바로 작업한다.** 학년·활동·현재 기능은 자료와 대화에서 파악하고, 색상·폰트·레이아웃 취향을 다시 묻거나 사용자에게 긴 프롬프트 작성을 요구하지 않는다. 기본 경로는 분석 → 재구성 → 구현 → 가능한 검증이며, 계획만 제시하고 끝내지 않는다.
-- **실제 결과물을 돌려준다.** 단일 HTML이면 수정된 실행 가능한 전체 HTML을, 기존 프로젝트면 그 프로젝트 안의 실제 변경을 제공한다. 기존 기능을 남기고 설명·배치를 재구성한다. 사용자가 별도 요청하지 않은 설치·공개 배포는 하지 않는다.
-- **읽기 실패는 정확히 알린다.** 사용할 수 있는 링크 읽기 도구가 있다면 저장소의 README 또는 통합 지침을 실제로 읽는다. 이미 이 본문을 읽었다면 다른 파일을 열어야만 시작할 수 있다고 하지 않는다. 링크나 수정 자료에 접근할 수 없으면 접근하지 못한 대상을 짧게 알리고 필요한 자료만 요청한다. 읽지 않은 지침을 적용했다고 주장하지 않는다.
+사용자가 이 저장소 주소와 “이걸로 수정해줘”를 보내면 아래 작업을 기본값으로 실행한다. 사용자가 더 자세한 프롬프트를 작성해야만 작동하는 방식으로 돌리지 않는다.
 
-이 정책은 이 문서 사용을 요청한 사용자의 작업 범위 안에서만 적용한다. 질문·비교·검토만 요청했다면 임의로 구현하지 않는다.
+- 대상은 현재 대화의 최신 첨부 HTML·앱·프로젝트다. 이 스킬 저장소나 예시를 수정 대상으로 오해하지 않는다.
+- 자료가 충분하면 현재 디자인과 수업 흐름을 읽고 바로 수정·검증한다. 색·폰트 취향이나 상세 축약 규칙을 다시 묻지 않는다. 대상이 없거나 실제로 모호할 때만 필요한 질문 하나를 한다.
+- 단일 HTML이면 실행 가능한 전체 수정본을, 프로젝트면 해당 프로젝트의 실제 변경을 제공한다. 계획만 제시하고 끝내지 않는다.
+- 사용할 수 있는 링크 읽기 도구가 있다면 README 또는 통합 지침을 실제로 읽는다. 이 본문에는 필요한 실행 규칙이 포함되어 있으므로 다른 문서를 열어야만 시작할 수 있다고 하지 않는다. 접근할 수 없는 링크나 자료가 있으면 그 사실과 필요한 자료만 짧게 알린다. 읽지 않았는데 읽었다고 주장하지 않는다.
+- 질문·비교·검토만 요청했다면 구현하지 않는다. 구체적인 사용자 범위가 이 기본값보다 우선한다. 별도 요청 없는 설치·공개 배포는 하지 않는다.
 
-## 적용 계약 · 구조 변경이 먼저
+## 1. 먼저 보존할 것을 확인한다
 
-이 스킬로 “수정해줘”라는 짧은 요청 및 “간소화”, “재구성”, “확 바꿔줘”라는 요청에는 아래 기준을 적용한다. 사용자가 색상만 바꾸라고 한 경우나 읽기 자체가 학습인 자료에는 범위를 넓혀 적용하지 않는다.
+수정 전 자료에서 두 가지를 짧게 정리한다. 내부 작업 기준이며 학생 화면에 새 안내문으로 추가하지 않는다.
 
-1. **원래 배치를 보존해야 한다고 해석하지 않는다.** 기능·수업 내용·데이터·정답 로직을 보존하되, 설명 카드와 컨테이너는 통합·이동·재배치한다. CSS와 문구만 손보고 끝내지 않는다.
-2. **첫 화면에서 바로 활동한다.** 조작·탐구 자료는 짧은 질문, 큰 학습 대상, 가까운 조작부로 시작한다. 개념 요약은 필요할 때 접근할 수 있게 옮긴다. 긴 개념 소개를 먼저 통과해야 활동하는 구조를 그대로 두지 않는다.
-3. **텍스트와 독립 설명 영역을 실제로 줄인다.** 정보가 많은 조작 자료에서는 기본 화면의 비필수 설명 분량과 독립 설명 패널 수를 각각 절반 이하로 줄이는 것을 기본 목표로 삼는다. 의미·조건·접근성을 지키기 어려우면 수치 달성 대신 구체적인 이유와 대안을 제시한다. 글자 축소, 화면 밖 밀어내기, 의미를 잃은 아이콘 치환으로 수치를 맞추지 않는다.
-4. **학습 대상이 화면의 중심을 차지한다.** 그래프·도형·분할 막대·모형·문제와 답안 등 현재 과제의 핵심을 크게 배치한다. 넓은 빈 카드 안에 작은 시각화만 넣지 않는다. 비필수 설명이 핵심 대상보다 더 많은 시선을 차지하면 다시 구성한다.
-5. **같은 카드 구조는 완료가 아니다.** 장식만 빼거나 이름만 바꾼 카드가 같은 위치에 남으면 다시 작업한다. 통합·이동된 정보와 확대된 학습 대상을 실제 변경의 증거로 확인한다. 내용이 정말 필요한 읽기·비교 과제에는 적합한 구조를 보존한다.
-6. **구조가 바뀐 뒤 스타일을 다듬는다.** 색, 폰트, 그림자, 라운딩, 아이콘, 샘플 숫자 변경은 구조 개선 실적으로 세지 않는다. `Hallmark`, `Classroom Edition`, `PRINCIPLE 01` 같은 스킬명·장식 영어를 학습 화면에 새로 넣지 않는다.
+**시각 정체성:** 주조색·강조색의 역할, 폰트와 제목의 위계, 배경, 선·그림자·라운딩, 여백과 컴포넌트의 리듬. 이미 잘 맞는 조합을 보존한다. 내용 축약에 필요한 크기·간격 조정은 가능하나, 다른 테마로 갈아엎거나 같은 색을 남긴 채 모든 요소를 평범한 폼으로 대체하지 않는다.
 
-The finished material should let a student see what to do and see what changed. These are acceptance criteria for an authorized substantial redesign, not permission to remove required activities or rewrite unrelated application logic.
+**수업·기능 계약:** 도입 맥락, 개념의 조건, 예제·문제, 수업 순서, 조작·정답 확인 방식, 허용 입력·단위·계산·채점·초기화·저장 동작. 이 스킬의 기본 요청은 수업 재설계 요청이 아니다. 참고 지침과 사례는 이 계약을 임의로 덮어쓰지 않는다.
 
-## Scope and starting point
+## 2. 텍스트 요소부터 편집한다
 
-- Read the existing material and relevant lesson requirements before changing it. Identify the learner, the task, the device, and the mathematical or subject relationship the interface must convey. Infer settled details from the conversation; ask only when a missing answer changes the work.
-- Describe the central learner action in one sentence, such as: “Change the ratio and predict each share.” This is an internal design decision, not another introductory card on the page.
-- Preserve working routes, data, grading, saved state, and required lesson content. **Preserve capabilities, not the old arrangement.** Changing layout files, component grouping, and the default activity view inside the target is part of a substantial redesign. Do not replace a working application with a disconnected mockup or silently remove a requested activity.
-- For audit-only or planning-only requests, return the diagnosis or plan and stop before editing. A redesign request authorizes relevant copy/layout changes, not deployment, production data changes, or unrelated rewrites.
-- Apply this workflow within the requested screen or component. Do not force an entire app into one activity screen. Dashboards still need their real information and working navigation.
-
-## 1. Reduce the information before choosing a look
-
-Classify each existing item by its job:
-
-| Job | Treatment |
+| 화면에 있는 텍스트 | 기본 처리 |
 | --- | --- |
-| Current question, necessary condition, control label | Keep in the activity view |
-| Result or evidence students are meant to discover | Reveal at the appropriate point in the activity |
-| Long explanation, derivation, extra example, teacher guidance | Put in a clearly named secondary view when still required |
-| Repeated title, instructions obvious from the control, decorative slogan | Remove or merge |
-| Attribution or other required notice | Preserve in a readable, appropriate place |
+| 같은 뜻의 제목·상위 제목·태그·소개 문장 반복 | 가장 명확한 표현 하나로 통합 |
+| 환영 문구·홍보성 수식·장식 영어·자명한 조작 안내 | 의미 손실이 없으면 제거 |
+| 현재 활동의 질문·지시 | 짧고 직접적인 한 문장으로 정리 |
+| 입력 라벨·단위·변수 대응·그림 범례 | 조작 대상 바로 옆에 읽기 쉽게 유지 |
+| 풀이 과정·보조 개념·추가 예시 | 현재 과제에 필요한 핵심은 유지하고, 긴 상세 설명만 필요할 때 펼쳐 보기 |
+| 정답·오답·오류 메시지 | 상태와 다음 행동을 짧게 전달. 필요한 이유와 복구 방법 보존 |
+| 필수 조건·읽기 활동의 본문·사용자가 원문 보존을 요구한 내용 | 정확성과 의미를 보존. 길다는 이유로 삭제하지 않음 |
 
-Default to a short question or action sentence instead of an explanatory introduction. Keep essential conditions and vocabulary: shortening must not change the task. Remove duplicated explanatory prose rather than just paraphrasing each sentence. Do not replace five text cards with five accordions or one modal containing the same undifferentiated wall of cards. Group secondary explanation around a specific learner question, with a clearly named way to reach it.
+- 모든 문장을 약간씩 바꾸는 것으로 끝내지 않는다. **독립적인 제목·설명·라벨이 꼭 필요한지** 판단해 중복 요소를 합치거나 제거한다.
+- 현재 학생이 무엇을 해야 하는지, 어떤 수·단위·조건을 보고 있는지 알 수 있을 만큼 남긴다. 색·아이콘·애니메이션으로만 정보를 전달하지 않는다.
+- 읽어야 할 문장을 작은 글자로 만들거나 화면 밖에 밀어내는 것은 간소화가 아니다. 접근성 이름과 키보드 안내도 유지한다.
+- 설명마다 아코디언·모달·탭을 하나씩 추가하지 않는다. 기존 흐름에서 필요한 상세 정보의 진입점을 소수로 묶는다.
+- **텍스트·카드를 절반으로 줄이라는 고정 목표는 없다.** 내용의 역할에 따라 최대한 간결하게 정리하되, 학습 맥락과 필요한 설명을 없애면서 수치를 맞추지 않는다.
 
-Before styling, make a compact internal content map: **keep here / merge / move to a secondary view / remove as duplicate**. Name the concrete destinations for required content and how existing activities remain reachable. Implement the map; a proposed map alone is not completion of a build request. If structural changes cannot be made within the user's explicit scope, state that limit instead of presenting cosmetic changes as the requested redesign.
+## 3. 디자인과 활동을 유지하며 정돈한다
 
-## 2. Give the activity the space
+- 원래 색·타입·컴포넌트의 개성을 살린다. 텍스트가 줄어 빈 공간이 생기면 자연스럽게 간격과 비율을 재조정한다.
+- 제목과 내용이 떨어져 있거나 같은 안내가 두 곳에 있을 때는 가까이 묶는다. 텍스트 축약만으로 충분하면 화면 구조를 억지로 다시 만들지 않는다.
+- 원래 수업의 도입 → 개념 → 연습 순서를 보존한다. 조작 화면을 첫 화면으로 강제하거나, 전체 내용을 새 탭으로 옮기지 않는다. 화면 단위 분리는 사용자가 원하거나, 긴 내용을 나누는 것이 현재 사용 방식에 명확히 도움이 될 때 선택한다.
+- 기존 시각화는 핵심이 더 잘 보이도록 크기·범례·대응 관계를 정돈할 수 있다. 스타일 수정 과정에서 새 문제 유형이나 학습 단계를 만들지는 않는다.
+- 계산기를 예상 답 입력 활동으로 바꾸거나, 바로 보이던 결과를 새 입력·확인 단계 뒤에 잠그지 않는다. 예측 단계가 원래 있거나 사용자가 원할 때만 유지·추가한다.
+- 원래 허용하던 소수·분수·연속량을 임의로 정수만 받도록 제한하지 않는다. 사탕·리본 같은 예시에서 발견한 수학적 조건은 해당 예시의 조건으로 다룬다. 디자인 스킬이 계산기의 입력 범위를 재정의하지 않는다.
+- 기존 움직임과 반응은 유지하되 필요한 상태 변화를 명확하게 한다. 장식 펄스·배경 이동·새 보상 카운터를 자동 추가하지 않는다. 모션 감소 설정에서는 정보와 동작을 유지한다.
+- 학생 화면에 스킬명, `Hallmark Edition`, 검증 보고서, “텍스트를 줄였습니다” 같은 제작 설명을 넣지 않는다.
 
-- Make the object students manipulate or inspect the visual centre: a quantity model, map, diagram, text passage, timeline, or working surface.
-- Put controls next to the thing they change and results next to the evidence that explains them. Avoid repeated journeys between a distant input, formula panel, and result card.
-- Keep one current learning task in focus. Sequential stages are useful when students need to predict, act, and check; do not introduce extra navigation for a task that already fits clearly.
-- Prefer one shared surface with spacing and type hierarchy over nested containers. Use a border when it communicates a real group, state, or comparison.
-- Separate the learning object from its surrounding wrapper when judging scale. Enlarge the actual diagram/model/question, not only its panel. As a starting target for a projected manipulation activity, allocate at least half the usable activity area to the central object; adjust when a paired comparison or response field is essential. This is a composition target, not an excuse to enlarge irrelevant empty space.
-- On a projected activity, the question, important values, controls, and result should be visible together at the intended presentation size. Move detail or split into meaningful stages before shrinking everything to fit.
-- Derive typography from viewing distance and content. Korean glyph readability matters more than novelty. A readable system or existing font is acceptable; serif headings, dark themes, and multiple font families are not requirements.
+필요할 때만 the lesson patterns included below의 해당 사례를 참고한다. 사례의 구체적인 수나 배치를 모든 자료에 강제하지 않는다.
 
-## 3. Design one observable interaction
+## 4. 실제 전후를 확인한다
 
-Write the causal chain before implementing motion:
+- 같은 화면 크기·수업 구간·입력값·공개 상태로 전후를 비교한다. 다른 과제로 바뀐 화면을 디자인 개선의 증거로 쓰지 않는다. 자료의 실제 첫 화면도 확인한다.
+- 시각 정체성이 유지됐는지, 중복 텍스트가 실제로 줄었는지, 필요한 내용이 읽히고 접근 가능한지 확인한다. 간결해졌지만 매력이 사라지거나 조작이 어려워졌다면 수정한다.
+- 원래 동작을 대표하는 경로를 실행한다. 입력 변경, 결과 확인, 오답 안내, 초기화, 화면 이동, 기존 채점을 확인한다. 원래 지원하던 입력 범위의 대표값도 확인한다.
+- 입력값을 바꾸면 질문 제목·설명·그림·계산 결과가 서로 일치하는지 확인한다. `40개`라는 고정 제목과 변경된 전체 `80`이 동시에 남는 결과를 내지 않는다.
+- 수식이 원시 `$...$`·역슬래시 명령으로 노출되지 않게 한다. 기존 계산·채점 코드를 스타일 변경 때문에 불필요하게 다시 쓰지 않는다.
+- 원래 화면에 맞는 데스크톱 크기에서 확인하고, 학생 모바일이 범위에 있으면 좁은 화면도 확인한다. 검증 도구가 없으면 코드로 확인한 범위와 화면에서 확인하지 못한 범위를 구분한다.
+- 근거 없이 축약 비율이나 “완벽 검증”을 주장하지 않는다. 문제가 발견되면 해당 범위에서 고치되 다른 기능을 조용히 바꾸지 않는다.
 
-**Learner action → domain state changes → visible evidence → interpretation or next action.**
+## 결과 전달
 
-- Use a real change in the learning object: repartition a bar, regroup equal units, rotate a model, highlight corresponding terms, move a point, or reveal an answer against a prediction.
-- Link all related representations to the same state. Numbers, labels, diagram proportions, and grading must agree after every change.
-- Use direct manipulation when useful, with an equivalent keyboard/touch control. Do not require hover or dragging as the only way to learn or operate the material.
-- Keep input responsive. Short transitions may clarify redistribution or correspondence; they must not delay every change or obscure exact values. Explain longer step-through animations with pause/replay or teacher control when needed.
-- Show final values immediately with reduced motion. Essential information must remain available when animations fail or are disabled.
-- Avoid decorative pulse loops, ambient moving backgrounds, scroll reveals of required instructions, and confetti as the main evidence of improvement. Sound and celebration are optional lesson choices, not default additions.
-- If no meaningful interaction fits the task, use a strong static composition. Do not add a slider just to make the page move.
-
-For task-specific ideas and boundaries, read the lesson patterns included below. Use the relevant example, not the whole catalogue.
-
-## 4. Apply the visual system last
-
-Reuse existing useful tokens, components, fonts, and dependencies. Choose a consistent, limited accent vocabulary to communicate roles. Maintain those roles across text, controls, and visual models; also label them so colour is not the only cue.
-
-Keep adequate contrast, readable input labels, visible keyboard focus, and sensible touch targets. Do not hide overflow to disguise a layout defect. Simplification does not remove error handling, accessibility, or recovery from invalid input.
-
-Use a light or dark treatment according to the actual setting and existing product. Do not force cream paper, hard offset shadows, English eyebrow labels, playful badges, or a theme catalogue onto every lesson. Avoid fake browser/device chrome and fabricated student results or success metrics.
-
-Prefer the project's current implementation tools. Native HTML/CSS, Canvas, or SVG are valid for actual instructional representations. Photographs and screenshots must be real sources, not approximate redraws. Add a library only when an actual requirement warrants it.
-
-## 5. Verify the change against the lesson
-
-- Capture the relevant original screen before editing. Compare the same viewport, task, input values, and reveal state afterwards. Also inspect each version's actual initial screen if the redesign changes the entry point. Do not manufacture a worse “before,” or compare a broken first screen against a different completed activity.
-- For dense manipulation screens, record the original and revised **visible nonessential explanatory text** and **independent explanatory panels**, using the same task/state and viewport. Count rendered copy, not source code bytes, class names, or comments. Panel counts describe separate explanation groups, not arbitrary DOM `div` counts. Keep the essential task conditions out of the deletion target; name that boundary. Check the reduction goals in the application contract, and do not claim a percentage you did not measure.
-- Confirm where required explanation and each existing activity can still be reached. Merely hiding everything, deleting functionality, or leaving the main model unchanged in a larger empty container fails the redesign.
-- Verify the main path in a browser: enter the activity, change the relevant input, observe all linked representations, check/reset, and revisit if the task has stages. Confirm keyboard/touch equivalents for the controls used.
-- For projected work, use the real presentation size when known; otherwise use a representative desktop viewport such as 1280×720. Check a narrow viewport when student phones/tablets are in scope. Reset temporary viewport overrides when finished.
-- Validate the subject relationship, not only the screenshot. Check totals, proportional lengths, units, accepted answers, and meaningful edge cases. Reuse the existing grader; do not rewrite lesson logic just for styling. Report a discovered content error and repair it only within the user's scope.
-- Render formulas readably. Do not ship raw `$...$`, `\\frac`, or `\\times` strings as visible equations. Use existing supported math rendering or appropriately accessible text/HTML for simple expressions.
-- Check normal and reduced-motion behaviour. State any untested boundaries rather than claiming classroom readiness from screenshots alone.
-
-Before handoff, answer these questions internally:
-
-1. Can the learner identify the current task without reading an introduction?
-2. Does the learning object dominate rather than decorative containers?
-3. Is the visual consequence of the action obvious and correct?
-4. Has required information remained available without crowding the current activity?
-5. Which explanatory regions were merged, moved, or removed, and which learning object actually grew?
-6. If the new screen keeps the old card arrangement, is there an explicit task-based reason? “Preserve the existing design” is not a reason when the user asked to simplify that arrangement.
-
-Fix an unsatisfied question that matters to the brief before adding visual polish. If text density and arrangement remain essentially the same, do another structural pass before handoff. No fabricated scores or automatic “all passed” stamps. When browser verification is unavailable, distinguish code changes from observed visual improvement.
-
-## Handoff
-
-Lead with the working result and the most meaningful change. Give a short verification summary and material remaining limits. For a substantial simplification, identify the actual removed/merged/moved groups and any measured reduction in one short sentence. Do not list cosmetic edits as evidence of structural improvement. Keep implementation terminology, source-skill branding, audit checklists, and claims about the designer out of the student-facing UI.
-
-Creating this skill does not itself redesign any supplied app. On each actual use, judge the rendered result; revise a rule only when the observed outcome supports the revision.
+작동하는 결과와 주요 변경을 짧게 전달한다. “소개 문장과 중복 태그를 합치고, 자세한 풀이를 보조 설명으로 옮겼다”처럼 실제 텍스트 편집을 말한다. 학생 화면 안에는 이 작업 보고를 넣지 않는다. 별도 요청이 없는 원본 파일을 덮어쓰지 않도록 수정본을 구분한다.
 
 ## Fork provenance
 
-Adapted from the local `hallmark` skill, version 1.1.0, inspected 2026-10-16. This is an independent, self-contained classroom workflow; the original skill is not modified or required at runtime. Retained ideas: deliberate hierarchy, specific copy, consistent visual language, purposeful feedback, and reduced-motion support. Replaced defaults: theme selection before content, marketing-page archetypes, decorative enrichment, and automatic theme/token exports unrelated to the requested change. Future upstream changes require deliberate review rather than blind replacement.
+로컬 Hallmark 1.1.0에서 파생한 독립 스킬이다. Hallmark의 시각적 일관성과 구체적인 문구·상태 피드백 원칙에 수업용 텍스트 편집 절차를 더했다. 기존 디자인이 있는 자료는 그 디자인을 보존하며, 원본 Hallmark를 런타임에 다시 읽어야만 작동하지는 않는다. 이 스킬은 AI의 외부 링크 접근을 보장하지 않는다. 규칙의 효과는 실제 적용 결과로 확인한다.
 
 
 ---
 
 # Lesson patterns
 
-Read only the pattern relevant to the lesson. These are examples of spatial and interaction choices, not required features or a fixed template. Use the user's supplied subject range and language.
+이 사례는 텍스트 축약의 판단을 돕는다. 원래 자료의 시각 디자인, 수업 목표, 기능 계약을 우선한다.
 
-## Ratio and proportional distribution
+## 비례식·비례배분 자료
 
-**Task:** Change a ratio, predict how much each person receives, and check the result.
+- “비례식과 비례배분”이라는 제목 뒤에 같은 뜻의 탐구실·마스터·수업 자료 라벨이 반복되면 정리한다. 원래 제목의 시각적 위계와 색은 유지한다.
+- “같은 비를 찾아보고 전체를 나누는 수학 여행” 같은 소개와 같은 뜻의 목표가 반복되면 실제 학생 활동이 드러나는 표현으로 합친다. 교사가 반드시 보여줘야 하는 학습 목표는 보존한다.
+- “A는 원액 2컵·물 3컵, B는 원액 4컵·물 6컵”을 그림 옆에 표시했다면 본문에서 같은 수를 다시 길게 나열하지 않아도 된다. 주스의 진하기를 비교한다는 수업 맥락은 유지한다.
+- 외항·내항은 기존 식 바로 옆의 대응 표시로 설명을 줄일 수 있다. 정의를 몰라도 된다고 가정하지 말고, 필요한 설명은 짧게 유지하거나 자세히 보기에 둔다.
+- 비례배분의 전체·비·단위 라벨을 보존한다. 공식과 풀이가 중복된다면 핵심 식은 남기고 상세 유도만 펼쳐 보기로 제공한다.
+- 원래 계산기의 버튼과 결과 공개 방식을 유지한다. 새 예측 칸 두 개를 강제하지 않는다. 원래 소수 결과를 보여주던 계산기를 정수 전용으로 만들지 않는다.
+- 숫자를 바꿀 수 있는 화면의 질문은 현재 값과 연결한다. 시각화를 꾸미느라 제목·설명·결과가 서로 다른 숫자를 가리키지 않게 한다.
 
-- Keep the total and ratio beside one large partitioned bar or equal-unit model. Show person labels and quantities in that same area.
-- Use a short prompt such as “20개를 2 : 3으로 나누면?” and controls with clear labels. A tutorial paragraph, “core principles” card, reward counter, and glossary do not all belong above the model.
-- If prediction is part of the brief, preserve an unanswered state. Reveal quantities and a concise calculation after the learner commits a prediction. Otherwise, immediate linked feedback can serve exploration better.
-- Animate the partition or regrouping while keeping the total constant. Avoid counting numbers from zero independently of the real state.
-- Mathematically verify `shareA + shareB = total` and `shareA : shareB = a : b` within the activity's numeric representation. Do not round indivisible objects into a different ratio. Choose divisible examples when the task requires whole objects, or use exact fractions/continuous quantities when the lesson allows them.
-- Handle zero denominators and invalid/unsupported inputs explicitly. Do not silently replace a learner's zero with one through `value || 1`.
+## 쌓기나무·공간 탐구
 
-**Useful structural change:** long concept introduction + formula card + separate input/result cards → short question + large common model + adjacent controls, with explanation available when needed.
+- 모형 옆의 조작 라벨과 앞 방향 기준은 유지한다. 상단 안내와 하단 안내가 같은 조작을 설명하면 합친다.
+- 문제 조건·답을 추론하는 데 필요한 보기와 교과서 표현을 임의로 삭제하지 않는다.
+- 실제 3D 조작·회전·채점을 그대로 두고 문구와 범례를 정돈한다. 인터랙티브 모형을 예쁜 정적 그림으로 대체하지 않는다.
 
-## Stacking blocks and spatial reasoning
+## 교사 대시보드
 
-**Task:** Manipulate or inspect a block arrangement and connect it to a view/count.
+- 제목·부제·상태 태그가 같은 내용을 반복하는지 확인한다. 실제 업무 구분과 학생 상태는 읽을 수 있게 남긴다.
+- 메뉴를 전부 숨기거나 표를 전체 화면 활동으로 바꾸지 않는다. 기존 목록·선택·권한·저장 동작을 보존한다.
+- 이 스킬의 “간결함”은 업무상 필요한 정보를 없애는 기준이 아니다.
 
-- Make the model large enough to see cubes, occlusion, and orientation. Put rotation/build controls beside it.
-- Preserve the front-direction reference and any textbook condition necessary to answer the question.
-- For a correspondence activity, show the relevant plan/view alongside the model. A “one focus” rule must not hide the second representation students need to compare.
-- Keep an answer concealed while students predict if the task requires prediction. Reveal the answer with the evidence, not just a success badge.
-- Use the actual model and answer rules. Do not replace a functioning 3D activity with an attractive static illustration.
+## 읽기·설명 중심 자료
 
-## Class management or teacher dashboards
+- 읽기 자체가 과제라면 본문 길이를 실패로 판단하지 않는다. 지시문과 반복 요약부터 편집한다.
+- 논리적 조건·근거·인용·교과서 원문을 요약하면서 의미를 바꾸지 않는다.
+- 해설 공개 시점이나 읽기 순서를 바꾸는 일은 내용 편집과 별개로 판단한다. 사용자 요청 없이 새 활동 흐름을 강제하지 않는다.
 
-**Task:** Identify the current class state and act on it.
+## 관찰한 실패에서 지킬 경계
 
-- Prioritize the teacher's actual decision: e.g. who needs checking, which proposal is pending, or which submissions changed.
-- Keep names, statuses, and relevant actions aligned in a legible list/table when that is more efficient than cards. Do not convert every row into a full-screen activity.
-- Use motion to locate a changed item or explain a transition; preserve focus and selection. Do not animate financial balances or student records merely for spectacle.
-- Preserve real permissions, privacy, validation, and persistence. Use clearly identified fictional data for an authorized workshop demo.
+원본 Hallmark 적용본은 색·서체 위계·선·그림자로 원래 수업을 꾸미고 기존 계산·채점 코드를 보존했다. 별도 간소화 적용본은 긴 내용을 나눴지만, 계산기에 두 개의 예상 답 입력을 추가하고 정수 결과만 허용했으며 입력 80과 고정 제목 40이 어긋났다.
 
-## Read-only materials and explanations
-
-**Task:** Read, compare, or follow a worked explanation.
-
-- Use readable prose when reading is itself the activity. Do not compress a text passage or argument until its meaning disappears.
-- Emphasize the relevant comparison or step. A teacher-controlled reveal can support a sequence; a stable page may be better for independent reading.
-- Keep necessary conditions, evidence, and source wording intact when the user requires it. Hide only secondary detail, with a clear route back to it.
-- Do not invent an interaction or elaborate animation to satisfy a visual style.
-
-## Regression case: a cosmetic pass on the dark ratio draft
-
-An observed revision kept three concept cards and two glossary panels in their original arrangement, retained small explanatory text, renamed the card CSS class, added “Hallmark Concept Cards / Principle 01” labels, and changed the visualizer's initial numbers. This is a **failed structural simplification**, even when the HTML differs and hover effects were added.
-
-For a substantial redesign of that manipulation lesson:
-
-- Start at a relevant short question with the working quantity model and adjacent controls. Do not retain the concept-card wall as the default entry screen simply because the source opens there.
-- Consolidate the three concept explanations and two vocabulary panels into a purposeful secondary reference. Remove duplicate introductions. Keep required terms available; practice and grading remain reachable and functional.
-- Increase the size of the actual model and its important values; verify that students can see the change from the intended viewing distance.
-- Compare the same ratio task and values as well as the old/new default screens. Check text/panel reduction and required-content access before calling the redesign complete.
-
-The exact arrangement depends on the supplied lesson. These steps describe what constitutes a meaningful change for this regression case, not a universal instruction to delete concept teaching or reading activities.
+다음 적용의 성공은 **시각 정체성을 유지하고, 중복 텍스트를 덜고, 기존 동작을 보존하는 것**이다. 설명 패널 수를 절반으로 만들거나, 첫 화면을 반드시 계산기로 바꾸거나, 전체 수업을 새 UI로 대체하는 것은 성공 조건이 아니다.

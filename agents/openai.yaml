@@ -1,4 +1,4 @@
 interface:
   display_name: "Hallmark Classroom"
-  short_description: "색상 변경에 그치지 않고 설명을 줄이고 화면 구조부터 재구성하는 수업 UI"
+  short_description: "기존 시각 디자인과 수업 기능을 살리면서 중복 텍스트를 최소화하는 수업 UI"
   default_prompt: "$hallmark-classroom으로 첨부한 자료를 수정해줘."
